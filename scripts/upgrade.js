@@ -1,8 +1,8 @@
 const { ethers, upgrades } = require("hardhat");
 
 async function main() {
-    const myContractAddress = "0x10eFC9A1BEF5e1f45fb2A764ed6C15b2B94568aa"; // replace with your deployed contract address
-    const MyContractV2 = await ethers.getContractFactory("MyContractV2");
+    const myContractAddress = "0xa22459b6bc03c98ad59387EeED68385974EC6CD8"; // replace with your deployed contract address
+    const MyContractV2 = await ethers.getContractFactory("MyContractV4");
     const myContractV2 = await upgrades.upgradeProxy(myContractAddress, MyContractV2);
 
 -

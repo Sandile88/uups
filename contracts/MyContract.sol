@@ -32,5 +32,5 @@ contract MyContract is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         value = newValue;
     }
 
-    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
+    function _authorizeUpgrade(address newImplementation) internal override virtual onlyOwner {}
 }

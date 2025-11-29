@@ -1,16 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./MyContract.sol";
+import "./MyContractV3.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 
-contract MyContractV2 is Initializable, MyContract {
-
+contract MyContractV4 is MyContractV3 {
+    uint256 public values;
 
     function _authorizeUpgrade(address newImplementation) internal override virtual onlyOwner {}
-
-    function incrementValue() public {
-        value += 1;
+    
+    function incrementValue2() public {
+        values += 5;
     }
+
+
 }
