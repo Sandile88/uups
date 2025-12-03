@@ -7,7 +7,7 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 
-contract MyContractV4 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
+contract MyContractV5 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     uint256 public value;
     uint256 public values;
 
@@ -23,13 +23,15 @@ contract MyContractV4 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         value = newValue;
     }
 
-    function _authorizeUpgrade(address newImplementation) internal override virtual onlyOwner {}
+    function _authorizeUpgrade(address newImplementation) internal override {
+        revert("No further upgrades allowed");
+    }
 
     function incrementValue() public {
         value += 5;
     }
 
     function incrementValues() public {
-        values += 22;
+        values += 5;
     }
 }
